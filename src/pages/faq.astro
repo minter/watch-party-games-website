@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { faq, categoryLabels } from "../data/faq";
+
+const categories = [...new Set(faq.map((item) => item.category))];
+---
+
+<Layout
+  title="FAQ — Watch Party Games"
+  description="Frequently asked questions about Watch Party Games — hardware requirements, event setup, team branding, and getting started."
+>
+  <!-- Nav -->
+  <nav
+    class="fixed top-0 z-50 w-full border-b border-white/5 bg-surface/80 backdrop-blur-xl"
+  >
+    <div
+      class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+    >
+      <a href="/" class="flex items-center gap-2 transition-colors hover:text-text-primary">
+        <span class="text-xl font-bold text-text-primary">Watch Party Games</span>
+      </a>
+      <div class="hidden items-center gap-8 sm:flex">
+        <a
+          href="/#games"
+          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
+          >Games</a
+        >
+        <a
+          href="/#event-tools"
+          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
+          >Event Tools</a
+        >
+        <a
+          href="/#features"
+          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
+          >Features</a
+        >
+        <a
+          href="/#contact"
+          class="inline-flex items-center rounded-lg bg-red-brand px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-brand-dark"
+          >Get Early Access</a
+        >
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="mx-auto max-w-3xl px-6">
+      <!-- Header -->
+      <div class="mb-12 text-center">
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+          Frequently Asked Questions
+        </h1>
+        <p class="mt-4 text-lg text-text-secondary">
+          Everything you need to know about Watch Party Games.
+        </p>
+      </div>
+
+      <!-- FAQ by category -->
+      {categories.map((category) => (
+        <section class="mb-12">
+          <h2 class="mb-6 text-sm font-semibold uppercase tracking-wider text-text-muted">
+            {categoryLabels[category]}
+          </h2>
+          <div class="space-y-4">
+            {faq
+              .filter((item) => item.category === category)
+              .map((item) => (
+                <details class="group rounded-xl border border-white/5 bg-surface-raised transition-colors open:border-white/10">
+                  <summary class="flex cursor-pointer items-center justify-between p-5 text-left font-semibold text-text-primary transition-colors hover:text-white [&::-webkit-details-marker]:hidden">
+                    <span class="pr-4">{item.question}</span>
+                    <span class="shrink-0 text-text-muted transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <div class="px-5 pb-5">
+                    <p class="leading-relaxed text-text-secondary">{item.answer}</p>
+                  </div>
+                </details>
+              ))}
+          </div>
+        </section>
+      ))}
+
+      <!-- CTA -->
+      <section class="mt-16 rounded-2xl border border-white/5 bg-surface-raised p-8 text-center sm:p-12">
+        <h2 class="mb-3 text-2xl font-bold">
+          Still have questions?
+        </h2>
+        <p class="mb-6 text-text-secondary">
+          We'd love to hear from you. Reach out and we'll get back to you quickly.
+        </p>
+        <a
+          href="mailto:hello@watchparty.app"
+          class="inline-flex items-center rounded-xl bg-red-brand px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-red-brand/25 transition-all hover:bg-red-brand-dark hover:shadow-red-brand/40 hover:-translate-y-0.5"
+          >Contact Us</a
+        >
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-8">
+    <div
+      class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 sm:flex-row"
+    >
+      <span class="text-sm text-text-muted"
+        >&copy; {new Date().getFullYear()} Watch Party Games</span
+      >
+      <span class="text-sm text-text-muted">watchparty.app</span>
+    </div>
+  </footer>
+</Layout>
