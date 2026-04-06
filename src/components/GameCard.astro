@@ -1,0 +1,22 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  icon: string;
+  color?: string;
+}
+
+const { name, description, icon, color = "red-brand" } = Astro.props;
+---
+
+<div
+  class="group relative rounded-2xl bg-surface-raised border border-white/5 p-6 transition-all duration-300 hover:border-red-brand/30 hover:bg-surface-overlay hover:-translate-y-1"
+>
+  <div
+    class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-red-brand/10 text-2xl transition-colors group-hover:bg-red-brand/20"
+  >
+    {icon}
+  </div>
+  <h3 class="mb-2 text-lg font-semibold text-text-primary">{name}</h3>
+  <p class="text-sm leading-relaxed text-text-secondary">{description}</p>
+</div>
