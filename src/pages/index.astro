@@ -4,47 +4,14 @@ import GameCard from "../components/GameCard.astro";
 import FeatureItem from "../components/FeatureItem.astro";
 import StepCard from "../components/StepCard.astro";
 import ModuleCard from "../components/ModuleCard.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 import { games } from "../data/games";
 import { modules } from "../data/modules";
 ---
 
 <Layout>
-  <!-- Nav -->
-  <nav
-    class="fixed top-0 z-50 w-full border-b border-white/5 bg-surface/80 backdrop-blur-xl"
-  >
-    <div
-      class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
-    >
-      <div class="flex items-center gap-2">
-        <span class="text-xl font-bold text-text-primary"
-          >Watch Party Games</span
-        >
-      </div>
-      <div class="hidden items-center gap-8 sm:flex">
-        <a
-          href="#games"
-          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
-          >Games</a
-        >
-        <a
-          href="#event-tools"
-          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
-          >Event Tools</a
-        >
-        <a
-          href="#features"
-          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
-          >Features</a
-        >
-        <a
-          href="#contact"
-          class="inline-flex items-center rounded-lg bg-red-brand px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-brand-dark"
-          >Get Early Access</a
-        >
-      </div>
-    </div>
-  </nav>
+  <Nav />
 
   <!-- Hero -->
   <section class="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-32">
@@ -341,18 +308,5 @@ import { modules } from "../data/modules";
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/5 py-8">
-    <div
-      class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 sm:flex-row"
-    >
-      <span class="text-sm text-text-muted"
-        >&copy; {new Date().getFullYear()} Watch Party Games</span
-      >
-      <div class="flex items-center gap-6">
-        <a href="/faq" class="text-sm text-text-muted transition-colors hover:text-text-secondary">FAQ</a>
-        <span class="text-sm text-text-muted">watchparty.app</span>
-      </div>
-    </div>
-  </footer>
+  <Footer />
 </Layout>

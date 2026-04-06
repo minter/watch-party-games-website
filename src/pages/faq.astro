@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 import { faq, categoryLabels } from "../data/faq";
 
 const categories = [...new Set(faq.map((item) => item.category))];
@@ -9,40 +11,7 @@ const categories = [...new Set(faq.map((item) => item.category))];
   title="FAQ — Watch Party Games"
   description="Frequently asked questions about Watch Party Games — hardware requirements, event setup, team branding, and getting started."
 >
-  <!-- Nav -->
-  <nav
-    class="fixed top-0 z-50 w-full border-b border-white/5 bg-surface/80 backdrop-blur-xl"
-  >
-    <div
-      class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
-    >
-      <a href="/" class="flex items-center gap-2 transition-colors hover:text-text-primary">
-        <span class="text-xl font-bold text-text-primary">Watch Party Games</span>
-      </a>
-      <div class="hidden items-center gap-8 sm:flex">
-        <a
-          href="/#games"
-          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
-          >Games</a
-        >
-        <a
-          href="/#event-tools"
-          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
-          >Event Tools</a
-        >
-        <a
-          href="/#features"
-          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
-          >Features</a
-        >
-        <a
-          href="/#contact"
-          class="inline-flex items-center rounded-lg bg-red-brand px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-brand-dark"
-          >Get Early Access</a
-        >
-      </div>
-    </div>
-  </nav>
+  <Nav />
 
   <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
     <div class="mx-auto max-w-3xl px-6">
@@ -97,15 +66,5 @@ const categories = [...new Set(faq.map((item) => item.category))];
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/5 py-8">
-    <div
-      class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 sm:flex-row"
-    >
-      <span class="text-sm text-text-muted"
-        >&copy; {new Date().getFullYear()} Watch Party Games</span
-      >
-      <span class="text-sm text-text-muted">watchparty.app</span>
-    </div>
-  </footer>
+  <Footer />
 </Layout>
