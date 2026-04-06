@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Message Sent — Watch Party Games"
+  description="Thanks for reaching out. We'll get back to you soon."
+>
+  <Nav />
+
+  <main class="flex min-h-[70vh] items-center justify-center pt-20">
+    <div class="mx-auto max-w-lg px-6 text-center">
+      <div class="mb-6 text-6xl">🏒</div>
+      <h1 class="mb-4 text-3xl font-bold sm:text-4xl">Message sent!</h1>
+      <p class="mb-8 text-lg text-text-secondary">
+        Thanks for reaching out. We'll get back to you within a day or two.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center rounded-xl border border-white/10 px-6 py-3 text-base font-medium text-text-secondary transition-colors hover:border-white/20 hover:text-text-primary"
+      >
+        &larr; Back to home
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

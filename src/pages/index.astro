@@ -285,25 +285,86 @@ import { modules } from "../data/modules";
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- Contact -->
   <section id="contact" class="py-16 sm:py-24">
-    <div class="mx-auto max-w-2xl px-6 text-center">
-      <h2 class="text-3xl font-bold sm:text-4xl">
-        Ready to level up your watch parties?
-      </h2>
-      <p class="mt-4 text-text-secondary">
-        We're gearing up for wider release. Get in touch to schedule a demo
-        or get early access for your team.
-      </p>
-      <div class="mt-8">
-        <a
-          href="mailto:hello@watchparty.app"
-          class="inline-flex items-center rounded-xl bg-red-brand px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-red-brand/25 transition-all hover:bg-red-brand-dark hover:shadow-red-brand/40 hover:-translate-y-0.5"
-          >Get in Touch</a
-        >
+    <div class="mx-auto max-w-xl px-6">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold sm:text-4xl">
+          Ready to level up your watch parties?
+        </h2>
+        <p class="mt-4 text-text-secondary">
+          Schedule a demo or get early access for your team.
+        </p>
       </div>
-      <p class="mt-4 text-sm text-text-muted">
-        hello@watchparty.app
+
+      <form
+        method="post"
+        action="https://faas-nyc1-2ef2e6cc.doserverless.co/api/v1/web/fn-9c0cb262-5a87-4b3f-affc-e4f730ee927b/site/watchparty-contact"
+        class="space-y-5"
+      >
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="name" class="mb-2 block text-sm font-medium text-text-secondary">Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Your name"
+              class="w-full rounded-lg border border-white/10 bg-surface-raised px-4 py-3 text-text-primary placeholder-text-muted outline-none transition-colors focus:border-red-brand/50 focus:ring-1 focus:ring-red-brand/25"
+            />
+          </div>
+          <div>
+            <label for="email" class="mb-2 block text-sm font-medium text-text-secondary">Email *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="you@team.com"
+              class="w-full rounded-lg border border-white/10 bg-surface-raised px-4 py-3 text-text-primary placeholder-text-muted outline-none transition-colors focus:border-red-brand/50 focus:ring-1 focus:ring-red-brand/25"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="organization" class="mb-2 block text-sm font-medium text-text-secondary">Organization</label>
+          <input
+            type="text"
+            id="organization"
+            name="organization"
+            placeholder="Team or venue name"
+            class="w-full rounded-lg border border-white/10 bg-surface-raised px-4 py-3 text-text-primary placeholder-text-muted outline-none transition-colors focus:border-red-brand/50 focus:ring-1 focus:ring-red-brand/25"
+          />
+        </div>
+
+        <div>
+          <label for="message" class="mb-2 block text-sm font-medium text-text-secondary">Message *</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="4"
+            placeholder="Tell us about your events, audience size, or what you're looking for..."
+            class="w-full rounded-lg border border-white/10 bg-surface-raised px-4 py-3 text-text-primary placeholder-text-muted outline-none transition-colors focus:border-red-brand/50 focus:ring-1 focus:ring-red-brand/25"
+          ></textarea>
+        </div>
+
+        <!-- Honeypot -->
+        <input type="text" name="_gotcha" style="display: none;" />
+
+        <div class="text-center">
+          <button
+            type="submit"
+            class="inline-flex items-center rounded-xl bg-red-brand px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-red-brand/25 transition-all hover:bg-red-brand-dark hover:shadow-red-brand/40 hover:-translate-y-0.5 cursor-pointer"
+          >
+            Send Message
+          </button>
+        </div>
+      </form>
+
+      <p class="mt-6 text-center text-sm text-text-muted">
+        Or email us directly at hello@watchparty.app
       </p>
     </div>
   </section>
