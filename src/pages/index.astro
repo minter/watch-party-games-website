@@ -3,81 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import GameCard from "../components/GameCard.astro";
 import FeatureItem from "../components/FeatureItem.astro";
 import StepCard from "../components/StepCard.astro";
-
-const games = [
-  {
-    name: "Lucky Puck",
-    icon: "\u{1F3D2}",
-    description:
-      "Random player selection with dramatic draw animations. Perfect for giveaways and fan spotlight moments.",
-  },
-  {
-    name: "Crowd Trivia",
-    icon: "\u{1F9E0}",
-    description:
-      "Live buzzer-style trivia with real-time answer validation. Test your fans' hockey knowledge.",
-  },
-  {
-    name: "Face Mash",
-    icon: "\u{1F469}\u200D\u{1F9B0}",
-    description:
-      "AI-powered face morphing combines two player headshots. Fans guess which players were mashed together.",
-  },
-  {
-    name: "Family Faceoff",
-    icon: "\u{1F91C}",
-    description:
-      "Team vs. team competition with strikes and scoring. A crowd favorite inspired by the classic game show.",
-  },
-  {
-    name: "Pyramid",
-    icon: "\u{1F53A}",
-    description:
-      "Six-category word-guessing game with timed rounds. Fast-paced fun for the whole crowd.",
-  },
-  {
-    name: "Jeopardy",
-    icon: "\u2753",
-    description:
-      "Classic trivia board format with categories and point values. Perfect for intermission entertainment.",
-  },
-  {
-    name: "Bingo",
-    icon: "\u{1F4CB}",
-    description:
-      "Event-based bingo that runs in the background during the game. Auto-generates printable cards.",
-  },
-  {
-    name: "Pick 'Em",
-    icon: "\u{1F52E}",
-    description:
-      "Pre-game predictions with printable sheets. Fans predict outcomes and compete for accuracy.",
-  },
-  {
-    name: "Puck Stacking",
-    icon: "\u{1F3C6}",
-    description:
-      "30-second speed stacking competitions with live leaderboards. Physical meets digital.",
-  },
-  {
-    name: "Flip Cup Relay",
-    icon: "\u{1F943}",
-    description:
-      "Team-based relay racing with real-time scoring and win celebrations on the big screen.",
-  },
-  {
-    name: "Couples Connection",
-    icon: "\u2764\uFE0F",
-    description:
-      "Partner knowledge challenges inspired by the Newlywed Game. Laughs guaranteed.",
-  },
-  {
-    name: "Raffle",
-    icon: "\u{1F3AB}",
-    description:
-      "Digital raffle system with winner history and management. Streamlines prize giveaways.",
-  },
-];
+import ModuleCard from "../components/ModuleCard.astro";
+import { games } from "../data/games";
+import { modules } from "../data/modules";
 ---
 
 <Layout>
@@ -100,9 +28,9 @@ const games = [
           >Games</a
         >
         <a
-          href="#how-it-works"
+          href="#event-tools"
           class="text-sm text-text-secondary transition-colors hover:text-text-primary"
-          >How It Works</a
+          >Event Tools</a
         >
         <a
           href="#features"
@@ -160,7 +88,7 @@ const games = [
         <a
           href="#games"
           class="inline-flex items-center gap-2 rounded-xl border border-white/10 px-8 py-3.5 text-base font-medium text-text-secondary transition-colors hover:border-white/20 hover:text-text-primary"
-          >See the Games &darr;</a
+          >See the Games ↓</a
         >
       </div>
     </div>
@@ -224,7 +152,7 @@ const games = [
             <div
               class="flex flex-col items-center justify-center rounded-lg bg-gradient-to-b from-surface-overlay to-surface p-6 text-center min-h-[180px]"
             >
-              <div class="mb-3 text-4xl">\u{1F3D2}</div>
+              <div class="mb-3 text-4xl">🏒</div>
               <div class="text-2xl font-bold text-text-primary">
                 LUCKY PUCK
               </div>
@@ -262,12 +190,39 @@ const games = [
         </p>
       </div>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {games.map((game) => <GameCard {...game} />)}
+        {games.map((game) => (
+          <GameCard
+            name={game.name}
+            icon={game.icon}
+            description={game.tagline}
+            slug={game.slug}
+          />
+        ))}
       </div>
-      <p class="mt-8 text-center text-sm text-text-muted">
-        Plus Cup Stacking, Test of Strength, Starting Lineup presentations,
-        and more.
-      </p>
+    </div>
+  </section>
+
+  <!-- Event Tools -->
+  <section id="event-tools" class="py-16 sm:py-24">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold sm:text-4xl">
+          Event tools that run the show
+        </h2>
+        <p class="mt-4 text-text-secondary">
+          Presentation and utility modules that work alongside your games.
+        </p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {modules.map((mod) => (
+          <ModuleCard
+            name={mod.name}
+            icon={mod.icon}
+            tagline={mod.tagline}
+            slug={mod.slug}
+          />
+        ))}
+      </div>
     </div>
   </section>
 

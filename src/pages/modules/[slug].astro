@@ -1,0 +1,178 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { modules, getModuleBySlug } from "../../data/modules";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return modules.map((mod) => ({
+    params: { slug: mod.slug },
+  }));
+};
+
+const { slug } = Astro.params;
+const mod = getModuleBySlug(slug as string)!;
+
+const currentIndex = modules.findIndex((m) => m.slug === slug);
+const prevMod = currentIndex > 0 ? modules[currentIndex - 1] : null;
+const nextMod =
+  currentIndex < modules.length - 1 ? modules[currentIndex + 1] : null;
+---
+
+<Layout
+  title={`${mod.name} — Watch Party Games`}
+  description={mod.tagline}
+>
+  <!-- Nav -->
+  <nav
+    class="fixed top-0 z-50 w-full border-b border-white/5 bg-surface/80 backdrop-blur-xl"
+  >
+    <div
+      class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+    >
+      <a href="/" class="flex items-center gap-2 transition-colors hover:text-text-primary">
+        <span class="text-xl font-bold text-text-primary">Watch Party Games</span>
+      </a>
+      <div class="hidden items-center gap-8 sm:flex">
+        <a
+          href="/#games"
+          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
+          >Games</a
+        >
+        <a
+          href="/#event-tools"
+          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
+          >Event Tools</a
+        >
+        <a
+          href="/#features"
+          class="text-sm text-text-secondary transition-colors hover:text-text-primary"
+          >Features</a
+        >
+        <a
+          href="/#contact"
+          class="inline-flex items-center rounded-lg bg-red-brand px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-brand-dark"
+          >Get Early Access</a
+        >
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="mx-auto max-w-4xl px-6">
+      <!-- Breadcrumb -->
+      <nav class="mb-8 flex items-center gap-2 text-sm text-text-muted">
+        <a href="/" class="transition-colors hover:text-text-secondary">Home</a>
+        <span>/</span>
+        <a href="/#event-tools" class="transition-colors hover:text-text-secondary">Event Tools</a>
+        <span>/</span>
+        <span class="text-text-secondary">{mod.name}</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="mb-4 flex flex-wrap items-center gap-3">
+          <span class="text-5xl">{mod.icon}</span>
+          <div>
+            <div class="mb-2 flex items-center gap-3">
+              <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+                {mod.name}
+              </h1>
+              <span class="rounded-full border border-teal-500/20 bg-teal-500/10 px-3 py-0.5 text-xs font-medium text-teal-400">
+                Event Tool
+              </span>
+            </div>
+            <p class="text-lg text-text-secondary sm:text-xl">{mod.tagline}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <section class="mb-12">
+        <h2 class="mb-4 text-2xl font-bold">About this tool</h2>
+        <p class="text-lg leading-relaxed text-text-secondary">
+          {mod.description}
+        </p>
+      </section>
+
+      <!-- How it works -->
+      <section class="mb-12">
+        <h2 class="mb-4 text-2xl font-bold">How it works</h2>
+        <p class="text-lg leading-relaxed text-text-secondary">
+          {mod.howItWorks}
+        </p>
+      </section>
+
+      <!-- Highlights -->
+      <section class="mb-12">
+        <h2 class="mb-4 text-2xl font-bold">Highlights</h2>
+        <ul class="space-y-3">
+          {mod.highlights.map((item) => (
+            <li class="flex items-start gap-3 text-text-secondary">
+              <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-teal-400" />
+              <span class="text-lg leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- CTA -->
+      <section class="mb-16 rounded-2xl border border-white/5 bg-surface-raised p-8 text-center sm:p-12">
+        <h2 class="mb-3 text-2xl font-bold">
+          Want to see {mod.name} in action?
+        </h2>
+        <p class="mb-6 text-text-secondary">
+          Request a demo and we'll walk you through the full experience.
+        </p>
+        <a
+          href="/#contact"
+          class="inline-flex items-center rounded-xl bg-red-brand px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-red-brand/25 transition-all hover:bg-red-brand-dark hover:shadow-red-brand/40 hover:-translate-y-0.5"
+          >Request a Demo</a
+        >
+      </section>
+
+      <!-- Prev/Next navigation -->
+      <nav class="flex items-stretch gap-4">
+        {prevMod ? (
+          <a
+            href={`/modules/${prevMod.slug}`}
+            class="group flex flex-1 items-center gap-3 rounded-xl border border-white/5 bg-surface-raised p-5 transition-all hover:border-teal-500/20 hover:bg-surface-overlay"
+          >
+            <span class="text-xl text-text-muted transition-transform group-hover:-translate-x-1">&larr;</span>
+            <div>
+              <div class="text-xs text-text-muted">Previous</div>
+              <div class="font-semibold text-text-primary">{prevMod.icon} {prevMod.name}</div>
+            </div>
+          </a>
+        ) : (
+          <div class="flex-1" />
+        )}
+        {nextMod ? (
+          <a
+            href={`/modules/${nextMod.slug}`}
+            class="group flex flex-1 items-center justify-end gap-3 rounded-xl border border-white/5 bg-surface-raised p-5 text-right transition-all hover:border-teal-500/20 hover:bg-surface-overlay"
+          >
+            <div>
+              <div class="text-xs text-text-muted">Next</div>
+              <div class="font-semibold text-text-primary">{nextMod.name} {nextMod.icon}</div>
+            </div>
+            <span class="text-xl text-text-muted transition-transform group-hover:translate-x-1">&rarr;</span>
+          </a>
+        ) : (
+          <div class="flex-1" />
+        )}
+      </nav>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-8">
+    <div
+      class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 sm:flex-row"
+    >
+      <span class="text-sm text-text-muted"
+        >&copy; {new Date().getFullYear()} Watch Party Games</span
+      >
+      <span class="text-sm text-text-muted">watchparty.app</span>
+    </div>
+  </footer>
+</Layout>
