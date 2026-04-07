@@ -353,6 +353,8 @@ import { modules } from "../data/modules";
         <!-- Honeypot -->
         <input type="text" name="_gotcha" style="display: none;" />
 
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAC10fYBntXxS3H5e" data-theme="dark"></div>
+
         <div class="text-center">
           <button
             type="submit"
@@ -362,6 +364,7 @@ import { modules } from "../data/modules";
           </button>
         </div>
       </form>
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
       <p class="mt-6 text-center text-sm text-text-muted">
         Or email us directly at hello@watchparty.app
