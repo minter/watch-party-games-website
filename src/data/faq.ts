@@ -33,13 +33,13 @@ export const faq: FaqItem[] = [
   {
     question: "Can I customize games with our team's branding?",
     answer:
-      "Yes. When you set up a party, you select your NHL team and the app automatically themes everything with your team's official colors — backgrounds, accents, overlays, and more. There are light and dark display modes, and your team logo appears on printable materials like bingo cards and prediction sheets.",
+      "Yes. When you set up a party, you select your NHL team and the app automatically themes everything with your team's official colors — backgrounds, accents, overlays, and more. There are light and dark display modes, and your team logo appears in the center square of printed bingo cards.",
     category: "product",
   },
   {
     question: "Does it require internet access during events?",
     answer:
-      "Most games work fully offline once set up. You'll need internet to pull roster data from the NHL API during initial setup and for the Game Flow module (which streams live stats), but once your party is configured and rosters are loaded, the games themselves run without a connection.",
+      "Most games work fully offline once set up. You'll need internet to pull roster data from the NHL API during initial setup, for AI content generation, for the Game Flow and Team Win modules (which use live NHL stats), and for anything fans play on their phones: Crowd Trivia and the online modes of Bingo and Pick 'Em. Once your party is configured and rosters are loaded, the rest of the games run without a connection.",
     category: "product",
   },
   // Events
@@ -58,13 +58,13 @@ export const faq: FaqItem[] = [
   {
     question: "How many fans can participate at once?",
     answer:
-      "There's no cap on audience size. Games like Bingo and Pick 'Em scale to however many cards or sheets you print (up to 500 per PDF generation). Crowd Trivia supports unlimited players through mobile phone participation. Physical games like Puck Stacking and Flip Cup Relay feature a handful of contestants while the whole crowd watches on the big screen.",
+      "There's no cap on audience size. Bingo and Pick 'Em scale to however many cards or sheets you print (up to 600 bingo cards or 500 prediction sheets per PDF), or fans can play them on their phones. Crowd Trivia supports unlimited players through mobile phone participation. Physical games like Puck Stacking and Flip Cup Relay feature a handful of contestants while the whole crowd watches on the big screen.",
     category: "events",
   },
   {
     question: "What printable materials does it generate?",
     answer:
-      "Bingo generates randomized 8.5 x 11 papers with your team logo and master tracking sheets for staff. Pick 'Em generates prediction sheets with your questions and tiebreaker, plus master answer sheets. Both support generating up to 500 copies at a time as print-ready PDFs.",
+      "Bingo generates randomized cards (up to 600 at a time) with your team logo in the center square, plus master tracking sheets for staff. Pick 'Em generates prediction sheets (up to 500 at a time) with your questions and tiebreaker, plus master answer sheets. Question Quest, Crowd Trivia, Family Faceoff, and Couples Connection can also print a host sheet with questions and answers. Everything comes out as print-ready PDFs.",
     category: "events",
   },
   {

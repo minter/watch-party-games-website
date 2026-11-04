@@ -35,7 +35,7 @@ src/
 │   └── StepCard.astro    # How-it-works step
 ├── data/             # Shared data files
 │   ├── games.ts          # 14 games with full marketing content
-│   ├── modules.ts        # 4 event tools
+│   ├── modules.ts        # 5 event tools
 │   └── faq.ts            # FAQ questions and answers
 ├── layouts/
 │   └── Layout.astro      # Base HTML layout with SEO meta
