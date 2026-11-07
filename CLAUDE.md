@@ -37,7 +37,7 @@ Marketing/landing page for the Watch Party Games product at **watchparty.app**.
 
 Watch Party Games is an Electron desktop app for NHL watch party entertainment. Key facts for writing copy:
 
-- 14 interactive games (Lucky Puck, Crowd Trivia, Face Mash, Family Faceoff, Pyramid, Question Quest, Bingo, Pick 'Em, Puck Stacking, Flip Cup Relay, Couples Connection, Raffle, Cup Stacking, Test of Strength)
+- 15 interactive games (Lucky Puck, Crowd Trivia, Face Mash, Family Faceoff, Light the Lamp, Pyramid, Question Quest, Bingo, Pick 'Em, Puck Stacking, Flip Cup Relay, Couples Connection, Raffle, Cup Stacking, Test of Strength)
 - 5 event tools (Starting Lineup, Game Flow, Announcement, Slideshow, Team Win)
 - Dual-window architecture: control window (staff laptop) + display window (TV/projector)
 - NHL API integration for all 32 teams (rosters, headshots, team colors)

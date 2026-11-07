@@ -97,6 +97,27 @@ export const games: Game[] = [
     category: "competition",
   },
   {
+    slug: "light-the-lamp",
+    name: "Light the Lamp",
+    icon: "\u{1F6A8}",
+    tagline: "Stop the board, dodge the mascot",
+    description:
+      "A stop-the-board game show for the big screen. Contestants take turns stopping a flashing 18-tile board to rack up points, extra spins, and small prizes, but landing on the mascot wipes out everything they've built in one of eleven animated scenes. Two hits and they're out, so every press is a gamble.",
+    howItWorks:
+      "Each contestant starts with a set number of spins. The host starts the board from the control laptop and hands the contestant a Stream Deck that becomes one giant STOP button. Each stop counts from the moment of the press, with a timing setting you calibrate once for your venue's screen. Tiles award points, extra spins, small prizes from your stash, a double, or a hop to the next space, and contestants can pass their spins to a rival instead of playing them. The highest score takes home the grand prize, and a tie goes to a one-spin tiebreaker.",
+    highlights: [
+      "Contestant-held Stream Deck becomes one giant STOP button",
+      "Stops timed to the press, calibrated for your venue's screen",
+      "Eleven animated mascot scenes, one featuring your opponent's logo",
+      "Pass spins to a rival to raise the stakes",
+      "One-spin tiebreaker and undo for every host action",
+      "Editable board tiles, starting spins, and grand prize",
+    ],
+    playerCount: "3 contestants recommended",
+    duration: "About 8 minutes",
+    category: "competition",
+  },
+  {
     slug: "pyramid",
     name: "Pyramid",
     icon: "\u{1F53A}",
